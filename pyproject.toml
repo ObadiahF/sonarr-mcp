@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sonarr-mcp"
+version = "0.1.0"
+description = "FastMCP server for Sonarr v5 — focused on resolving stuck imports."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "ObadiahF" }]
+keywords = ["sonarr", "mcp", "fastmcp", "homelab", "automation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "mcp[cli]>=1.2.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.6.0",
+]
+
+[project.optional-dependencies]
+tests = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "respx>=0.21",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "respx>=0.21",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+sonarr-mcp = "sonarr_mcp.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/ObadiahF/sonarr-mcp"
+Issues = "https://github.com/ObadiahF/sonarr-mcp/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sonarr_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-ra -q"

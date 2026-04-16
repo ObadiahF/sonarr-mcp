@@ -1,0 +1,4 @@
+{
+  "baseUrl": "http://homelab.local:8989",
+  "apiKey": "REPLACE_WITH_YOUR_SONARR_API_KEY"
+}
