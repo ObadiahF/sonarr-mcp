@@ -32,8 +32,8 @@ class SonarrConfig:
 
     @property
     def api_root(self) -> str:
-        """Sonarr v5 API base URL (no trailing slash)."""
-        return f"{self.base_url.rstrip('/')}/api/v5"
+        """Sonarr v3 API base URL (no trailing slash)."""
+        return f"{self.base_url.rstrip('/')}/api/v3"
 
 
 def _resolve_path(override: str | os.PathLike[str] | None) -> Path:
